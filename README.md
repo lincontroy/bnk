@@ -6,7 +6,7 @@
 ---
 
 
-# EquityMobile
+# EquityMobileCloneApp
 
 EquityMobile is an Android application developed using modern Android development practices. The app is built using Jetpack Compose, the latest UI toolkit for Android, along with other contemporary libraries and tools available in the Android ecosystem.
 
