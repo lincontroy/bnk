@@ -1,0 +1,36 @@
+name: CI/CD Workflow
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v3.13.0
+        with:
+          java-version: "17"
+          distribution: "zulu"
+
+      - name: Make gradle executable
+        run: chmod +x ./gradlew
+
+        # Execute gradle build command with stacktrace flag
+      - name: Build with gradle
+        run: ./gradlew build --stacktrace # Execute gradle script to build project
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: EquityMobile
+          path: app/build/outputs/apk/debug/app-debug.apk
