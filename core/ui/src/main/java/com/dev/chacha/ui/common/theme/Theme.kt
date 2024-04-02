@@ -1,5 +1,6 @@
 package com.dev.chacha.ui.common.theme
 
+import android.content.Context
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -9,12 +10,26 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStore
 import com.dev.chacha.ui.common.theme.*
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import java.util.Locale
 
+val Context.dataStore by preferencesDataStore("settings")
+var Context.appTheme by mutableStateOf(ThemeMode.SYSTEM)
+var Context.appLocale: Locale? by mutableStateOf(null)
+var Context.systemLocale: Locale? by mutableStateOf(null)
+enum class ThemeMode { LIGHT, NIGHT, SYSTEM }
 
 private val LightColorScheme = lightColorScheme(
     primary = md_theme_light_primary,
@@ -80,6 +95,14 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 @Composable
+fun isNightMode(): Boolean = when (LocalContext.current.appTheme) {
+    ThemeMode.LIGHT -> false
+    ThemeMode.NIGHT -> true
+    else -> isSystemInDarkTheme()
+}
+
+
+@Composable
 fun EquityMobileTheme(
     darkTheme: Boolean = false,
     // Dynamic color is available on Android 12+
@@ -119,4 +142,23 @@ fun EquityMobileTheme(
         typography = AppTypography,
         content = content
     )
+}
+
+
+suspend fun switchTheme(context: Context, mode: ThemeMode) {
+    context.dataStore.edit {
+        it[stringPreferencesKey("theme")] = mode.toString()
+    }
+
+    context.appTheme = mode
+}
+
+fun syncTheme(context: Context) {
+    val currentValue = runBlocking { context.dataStore.data.first() }
+
+    val mode = ThemeMode.valueOf(
+        currentValue[stringPreferencesKey("theme")] ?: ThemeMode.SYSTEM.toString()
+    )
+
+    context.appTheme = mode
 }

@@ -1,11 +1,15 @@
 package com.dev.chacha.more.presentation
 
+import android.content.Context
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dev.chacha.data.use_case.BiometricUseCase
+import com.dev.chacha.ui.common.theme.ThemeMode
+import com.dev.chacha.ui.common.theme.switchTheme
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -27,7 +31,7 @@ class MoreViewModel  @Inject constructor(
     }
 
     init {
-        getDarkTheme()
+        getBiometrics()
     }
 
 
@@ -35,32 +39,34 @@ class MoreViewModel  @Inject constructor(
         when(event){
             is MoreUiEvent.EnableBiometricToggled -> {
                 saveBiometric(isBiometricEnabled  = event.isBiometricEnabled)
-                getDarkTheme()
+                getBiometrics()
             }
 
             is MoreUiEvent.EnableBankAlertToggled -> {
                 saveBankAlert(isMarketContentEnabled   = event.isBankAlertEnabled)
-                getDarkTheme()
+                getBiometrics()
 
             }
             is MoreUiEvent.EnableEventToggled -> {
                 saveBankEvent(isMarketContentEnabled   = event.isEventEnabled)
-                getDarkTheme()
+                getBiometrics()
 
             }
             is MoreUiEvent.EnableMarketContentToggled -> {
                 saveMarketContent(isMarketContentEnabled   = event.isMarketContentEnabledEnabled)
-                getDarkTheme()
+                getBiometrics()
 
             }
             is MoreUiEvent.EnableServiceUpdateToggled -> {
                 saveServiceUpdate(isMarketContentEnabled   = event.isServiceUpdateEnabled)
-                getDarkTheme()
+                getBiometrics()
             }
         }
     }
 
-    private fun getDarkTheme() {
+
+
+    private fun getBiometrics() {
         viewModelScope.launch {
             biometricUseCase.execute().collect { enabled ->
                 if (enabled != null) {

@@ -1,28 +1,34 @@
 package com.chachadeveloper.equitymobile.presentation.activity
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.chachadeveloper.equitymobile.presentation.bottomNav.StandardScaffold
 import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.dev.chacha.ui.common.theme.syncTheme
 import com.dev.chacha.util.Graph
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
+
+
 
 @AndroidEntryPoint
 class MainActivity : FragmentActivity() {
@@ -33,7 +39,9 @@ class MainActivity : FragmentActivity() {
         installSplashScreen().setKeepOnScreenCondition { !isDone.value }
         super.onCreate(savedInstanceState)
         setContent {
+            val localContext = LocalContext.current
             LaunchedEffect(Unit) {
+                syncTheme(localContext)
                 isDone.value = true
                 checkAndRequestPermission()
             }
@@ -44,7 +52,6 @@ class MainActivity : FragmentActivity() {
 
             if (isDone.value) {
                 EquityMobileTheme {
-
                     StandardScaffold(
                         navController = navController,
                         showBottomBar = navBackStackEntry?.destination?.route in listOf(
@@ -59,11 +66,6 @@ class MainActivity : FragmentActivity() {
                     ) {
                         RootNavGraph(navController)
                     }
-                    /*Box(
-                        modifier = Modifier.fillMaxSize(),
-                    ) {
-                        MainScreen()
-                    }*/
                 }
             }
         }
@@ -94,7 +96,6 @@ class MainActivity : FragmentActivity() {
             isDone.value = true
         }
     }
-
 
 }
 

@@ -24,12 +24,13 @@ import com.dev.chacha.ui.common.components.StandardCard
 
 @Composable
 fun MoreUserAccount(
-    userName: String = "Stephen Chacha"
+    modifier: Modifier = Modifier,
+    userName: String = "Stephen Chacha",
 ) {
     StandardCard {
         Row(
             horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .wrapContentHeight(),
             verticalAlignment = Alignment.CenterVertically,

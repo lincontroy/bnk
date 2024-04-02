@@ -3,7 +3,7 @@ package com.dev.chacha.more.navigation
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import com.dev.chacha.more.presentation.MoreScreen
+import com.dev.chacha.more.presentation.settings_more.MoreScreen
 import com.dev.chacha.more.presentation.change_language.ChangeLanguageScreen
 import com.dev.chacha.more.presentation.get_touch.GetInTouchScreen
 import com.dev.chacha.more.presentation.manage_devices_screen.ManageDeviceScreen

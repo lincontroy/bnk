@@ -37,6 +37,7 @@ import androidx.compose.ui.zIndex
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.theme.Transparent
 import com.dev.chacha.ui.common.theme.primaryPink
+import timber.log.Timber
 
 @Composable
 fun SegmentedControl(
@@ -48,7 +49,7 @@ fun SegmentedControl(
     @ColorRes color : Int = R.color.teal_200,
     onItemSelection: (selectedItemIndex: Int) -> Unit
 ) {
-    val selectedIndex = remember { mutableStateOf(defaultSelectedItemIndex) }
+    val selectedIndex = remember { mutableIntStateOf(defaultSelectedItemIndex) }
 
     Row(
         modifier = Modifier
@@ -61,28 +62,28 @@ fun SegmentedControl(
                             Modifier
                                 .width(itemWidth)
                                 .offset(0.dp, 0.dp)
-                                .zIndex(if (selectedIndex.value == index) 1f else 0f)
+                                .zIndex(if (selectedIndex.intValue == index) 1f else 0f)
                         } else {
                             Modifier
                                 .wrapContentSize()
                                 .offset(0.dp, 0.dp)
-                                .zIndex(if (selectedIndex.value == index) 1f else 0f)
+                                .zIndex(if (selectedIndex.intValue == index) 1f else 0f)
                         }
                     } else -> {
                         if (useFixedWidth)
                             Modifier
                                 .width(itemWidth)
                                 .offset((-1 * index).dp, 0.dp)
-                                .zIndex(if (selectedIndex.value == index) 1f else 0f)
+                                .zIndex(if (selectedIndex.intValue == index) 1f else 0f)
                         else Modifier
                             .wrapContentSize()
                             .offset((-1 * index).dp, 0.dp)
-                            .zIndex(if (selectedIndex.value == index) 1f else 0f)
+                            .zIndex(if (selectedIndex.intValue == index) 1f else 0f)
                     }
                 },
                 onClick = {
-                    selectedIndex.value = index
-                    onItemSelection(selectedIndex.value)
+                    selectedIndex.intValue = index
+                    onItemSelection(selectedIndex.intValue)
                 },
                 shape = when (index) {
                     /**
@@ -114,13 +115,13 @@ fun SegmentedControl(
                     )
                 },
                 border = BorderStroke(
-                    1.dp, if (selectedIndex.value == index) {
+                    1.dp, if (selectedIndex.intValue == index) {
                         colorResource(id = color)
                     } else {
                         colorResource(id = color).copy(alpha = 0.75f)
                     }
                 ),
-                colors = if (selectedIndex.value == index) {
+                colors = if (selectedIndex.intValue == index) {
                     /**
                      * selected colors
                      */
@@ -139,7 +140,7 @@ fun SegmentedControl(
                 Text(
                     text = item,
                     fontWeight = FontWeight.Normal,
-                    color = if (selectedIndex.value == index) {
+                    color = if (selectedIndex.intValue == index) {
                         Color.White
                     } else {
                         colorResource(id = color).copy(alpha = 0.9f)
@@ -152,6 +153,7 @@ fun SegmentedControl(
 
 
 @Composable
+@Preview
 fun SegmentedControlPage() {
     Scaffold(
         topBar = {
@@ -180,7 +182,7 @@ fun SegmentedControlPage() {
                     items = genders,
                     defaultSelectedItemIndex = 0
                 ) {
-                    Log.e("CustomToggle", "Selected item : ${genders[it]}")
+                    Timber.tag("CustomToggle").e("Selected item : %s", genders[it])
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -191,7 +193,7 @@ fun SegmentedControlPage() {
                     cornerRadius = 50,
                     color = R.color.purple_200
                 ) {
-                    Log.e("CustomToggle", "Selected item : ${genders4[it]}")
+                    Timber.tag("CustomToggle").e("Selected item : %s", genders4[it])
                 }
 
                 Spacer(modifier = Modifier.height(30.dp))
@@ -208,7 +210,7 @@ fun SegmentedControlPage() {
                     useFixedWidth = true,
                     itemWidth = 120.dp
                 ) {
-                    Log.e("CustomToggle", "Selected item : ${genders1[it]}")
+                    Timber.tag("CustomToggle").e("Selected item : %s", genders1[it])
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -221,7 +223,7 @@ fun SegmentedControlPage() {
                     cornerRadius = 50,
                     color = R.color.purple_200
                 ) {
-                    Log.e("CustomToggle", "Selected item : ${genders2[it]}")
+                    Timber.tag("CustomToggle").e("Selected item : %s", genders2[it])
                 }
 
                 Spacer(modifier = Modifier.height(30.dp))
@@ -236,7 +238,7 @@ fun SegmentedControlPage() {
                     items = items,
                     defaultSelectedItemIndex = 0
                 ) {
-                    Log.e("CustomToggle", "Selected item : ${items[it]}")
+                    Timber.tag("CustomToggle").e("Selected item : %s", items[it])
                 }
 
                 Spacer(modifier = Modifier.height(10.dp))
@@ -247,7 +249,7 @@ fun SegmentedControlPage() {
                     color = R.color.purple_200,
                     cornerRadius = 50
                 ) {
-                    Log.e("CustomToggle", "Selected item : ${items1[it]}")
+                    Timber.tag("CustomToggle").e("Selected item : %s", items1[it])
                 }
             }
         }

@@ -413,5 +413,6 @@
     <string name="add_an_equity_account">Add an Equity account</string>
     <string name="add_an_equity_account_des">An an Equity account to your profile</string>
     <string name="add_your_paypal_account_desc">Link any two PayPal accounts to your bank accounts</string>
+    <string name="dark_mode">Dark mode</string>
 
 </resources>

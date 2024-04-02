@@ -66,6 +66,7 @@ fun StandardToolbar(
                 Box(
                     modifier = Modifier
                         .size(48.dp)
+                        .clickable { onNavigateBack() }
                         .border(1.dp, MaterialTheme.colorScheme.primary, CircleShape),
                     contentAlignment = Alignment.Center
                 ) {

@@ -1,4 +1,5 @@
-package com.dev.chacha.home.presentation.home_screen
+package com.dev.chacha.home.presentation.home_screen.components
+
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
