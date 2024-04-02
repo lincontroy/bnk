@@ -5,5 +5,6 @@ data class MoreUiState(
  val isEventEnabled: Boolean = false,
  val isMarketContentEnabled: Boolean = false,
  val isServiceUpdateEnabled: Boolean = false,
- val isBankAlertAlertEnabled: Boolean = false
+ val isBankAlertAlertEnabled: Boolean = false,
+ val isDarkModeEnabled: Boolean = false
 )

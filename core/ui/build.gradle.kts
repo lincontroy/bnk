@@ -76,6 +76,7 @@ dependencies {
     implementation(libs.compose.compiler)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.coil.gf)
+    implementation(libs.datastore)
     implementation(libs.lifecycle.runtimeKtx)
     implementation(libs.timber)
     implementation(libs.android.hilt)

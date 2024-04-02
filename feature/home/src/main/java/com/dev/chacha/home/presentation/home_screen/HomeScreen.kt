@@ -2,15 +2,16 @@ package com.dev.chacha.home.presentation.home_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -23,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.dev.chacha.home.presentation.home_screen.components.HomeServiceCard
+import com.dev.chacha.home.presentation.home_screen.components.MyAccountsCard
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.MoreVerticalItemWithCard
 import com.dev.chacha.ui.common.components.StandardToolbar
@@ -34,6 +36,7 @@ import com.dev.chacha.ui.common.theme.EquityMobileTheme
 import com.dev.chacha.util.Graph.BORROW_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.SAVINGS_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.TRANSACTION_SCREEN_ROUTE
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -46,6 +49,13 @@ fun HomeScreen(
     var isSheetOpen by rememberSaveable { mutableStateOf(false) }
     var currentBottomSheet: TransactionBottomSheetType? by remember { mutableStateOf(null) }
     val coroutineScope = rememberCoroutineScope()
+    var isLoading by remember {
+        mutableStateOf(true)
+    }
+    LaunchedEffect(key1 = true) {
+        delay(5000)
+        isLoading = false
+    }
 
     Column(
         modifier = Modifier
@@ -74,71 +84,68 @@ fun HomeScreen(
             item {
                 HomeGreetings()
             }
-            item {
-                OnBoardingHome(navController = navController)
-            }
 
             item {
-                HomeServiceCard(
-                    onClickBorrow = { navController.navigate(BORROW_SCREEN_ROUTE) },
-                    onClickSave = { navController.navigate(SAVINGS_SCREEN_ROUTE) },
-                    onClickTransact = { navController.navigate(TRANSACTION_SCREEN_ROUTE) }
-                )
-            }
+                ShimmerListItem(
+                    isLoading = isLoading,
+                    contentAfterLoading = {
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            OnBoardingHome(navController = navController)
+                            HomeServiceCard(
+                                onClickBorrow = { navController.navigate(BORROW_SCREEN_ROUTE) },
+                                onClickSave = { navController.navigate(SAVINGS_SCREEN_ROUTE) },
+                                onClickTransact = { navController.navigate(TRANSACTION_SCREEN_ROUTE) }
+                            )
+                            MyBalanceCard()
+                            MyAccountsCard(navController)
+                            Column(
+                                modifier = Modifier.padding(horizontal = 16.dp)
+                            ) {
+                                MoreVerticalItemWithCard(
+                                    drawable = R.drawable.outline_add_24,
+                                    title = R.string.add_account,
+                                    subtitle = R.string.add_account_description,
+                                    onClick = {
+                                        currentBottomSheet = TransactionBottomSheetType.PAY_PAL
+                                        isSheetOpen = true
+                                    },
+                                )
+                            }
 
-            item {
-                MyBalanceCard()
-            }
+                            MyPayPalAccounts(
+                                onClick = {
+                                    currentBottomSheet =
+                                        TransactionBottomSheetType.WITHDRAW_FROM_PAYPAL
+                                    isSheetOpen = true
+                                }
+                            )
 
-            item {
-                MyAccountsCard(navController)
-            }
 
-            item {
-                Column(
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                ) {
-                    MoreVerticalItemWithCard(
-                        drawable = R.drawable.outline_add_24,
-                        title = R.string.add_account,
-                        subtitle = R.string.add_account_description,
-                        onClick = {
-                           currentBottomSheet = TransactionBottomSheetType.PAY_PAL
-                            isSheetOpen = true
-                        },
-                    )
-                }
+                            Column(
+                                modifier = Modifier.padding(horizontal = 16.dp),
+                            ) {
+                                MoreVerticalItemWithCard(
+                                    drawable = R.drawable.paypal_large_icon,
+                                    title = R.string.add_your_paypal_account,
+                                    onClick = {
 
-            }
-            item {
+                                    },
+                                    showColorFilter = true
 
-                MyPayPalAccounts(
-                    onClick = {
-                        currentBottomSheet = TransactionBottomSheetType.WITHDRAW_FROM_PAYPAL
-                        isSheetOpen = true
+                                )
+
+                            }
+
+                            Spacer(modifier = Modifier.height(30.dp))
+
+                        }
                     }
                 )
             }
 
-            item {
-                Column(
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                ) {
-                    MoreVerticalItemWithCard(
-                        drawable = R.drawable.paypal_large_icon,
-                        title = R.string.add_your_paypal_account,
-                        onClick = {
-
-                        },
-                        showColorFilter = true
-
-                    )
-                }
-
-            }
-            item {
-                Spacer(modifier = Modifier.height(50.dp))
-            }
 
         }
 

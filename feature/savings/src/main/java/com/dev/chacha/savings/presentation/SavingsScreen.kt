@@ -1,5 +1,10 @@
 package com.dev.chacha.savings.presentation
 
+import androidx.compose.animation.core.EaseIn
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandHorizontally
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInHorizontally
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +25,7 @@ import androidx.navigation.NavController
 import com.dev.chacha.savings.navigation.SavingsScreenNavigation
 import com.dev.chacha.savings.component.SavingsComponent
 import com.dev.chacha.ui.R
+import com.dev.chacha.ui.common.animation.WithAnimation
 import com.dev.chacha.ui.common.components.StandardToolbar
 
 @Composable
@@ -60,36 +66,59 @@ fun SavingsScreen(
                    }
                 }
                 item {
-                    SavingsComponent(
-                        savingTypeTitle = R.string.classic_savings_title,
-                        savingTypeSubtitle = R.string.classic_savings_subtitle,
-                        onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutClassicSavings.route)},
-                        onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.ClassicSavings.route)}
-                    )
+                    WithAnimation(
+                        animation = expandHorizontally() + fadeIn(),
+
+                        ) {
+                        SavingsComponent(
+                            savingTypeTitle = R.string.classic_savings_title,
+                            savingTypeSubtitle = R.string.classic_savings_subtitle,
+                            onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutClassicSavings.route)},
+                            onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.ClassicSavings.route)}
+                        )
+                    }
+
                 }
                 item {
-                    SavingsComponent(
-                        savingTypeTitle = R.string.goal_savings_title,
-                        savingTypeSubtitle = R.string.goal_savings_subtitle,
-                        onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutGoalSavings.route)},
-                        onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.GoalSavings.route)}
-                    )
+                    WithAnimation(
+                        animation = slideInHorizontally(tween(400)) + fadeIn(tween(400)),
+                    ) {
+                        SavingsComponent(
+                            savingTypeTitle = R.string.goal_savings_title,
+                            savingTypeSubtitle = R.string.goal_savings_subtitle,
+                            onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutGoalSavings.route)},
+                            onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.GoalSavings.route)}
+                        )
+                    }
+
                 }
                 item {
-                    SavingsComponent(
-                        savingTypeTitle = R.string.fixed_savings_title,
-                        savingTypeSubtitle = R.string.fixed_savings_subtitle,
-                        onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutFixedDeposit.route)},
-                        onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.FixedDeposit.route)}
-                    )
+                    WithAnimation(
+                        animation = slideInHorizontally(tween(600)) + fadeIn(tween(600)),
+                    ) {
+                        SavingsComponent(
+                            savingTypeTitle = R.string.fixed_savings_title,
+                            savingTypeSubtitle = R.string.fixed_savings_subtitle,
+                            onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutFixedDeposit.route)},
+                            onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.FixedDeposit.route)}
+                        )
+                    }
+
                 }
                 item {
-                    SavingsComponent(
-                        savingTypeTitle = R.string.call_savings_title,
-                        savingTypeSubtitle = R.string.call_savings_subtitle,
-                        onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutCallDeposit.route)},
-                        onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.CallDeposit.route)}
-                    )
+                    WithAnimation(
+                        animation = slideInHorizontally(tween(800)) + fadeIn(
+                            animationSpec = tween(800, easing = EaseIn)
+                        ),
+                    ) {
+                        SavingsComponent(
+                            savingTypeTitle = R.string.call_savings_title,
+                            savingTypeSubtitle = R.string.call_savings_subtitle,
+                            onClickLearnMore = {navController.navigate(SavingsScreenNavigation.AboutCallDeposit.route)},
+                            onClickOpenAccount = {navController.navigate(SavingsScreenNavigation.CallDeposit.route)}
+                        )
+                    }
+
                 }
                 item {
                     Box{}
