@@ -16,7 +16,7 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.util.Graph.HOME_SCREEN_ROUTE
 
 
@@ -76,7 +76,7 @@ fun BottomNavigationBar(navController: NavHostController) {
 @Preview
 @Composable
 fun BottomNavigationPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         BottomNavigationBar(rememberNavController())
     }
 }

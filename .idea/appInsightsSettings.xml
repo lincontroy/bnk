@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.chachadeveloper.equitymobile" />
+                  <option name="mobileSdkAppId" value="1:1059348418009:android:c9feb5154850bfcdfb5dc8" />
+                  <option name="projectId" value="equitymobile-79a01" />
+                  <option name="projectNumber" value="1059348418009" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

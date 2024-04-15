@@ -32,7 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.auth.presentation.navigation.AuthScreen
 import com.dev.chacha.data.BiometricUiEvent
 import com.dev.chacha.data.BiometricViewModel
@@ -191,7 +191,7 @@ fun BiometricSetUpScreen(navController: NavController) {
 @RequiresApi(Build.VERSION_CODES.P)
 @Composable
 fun FingerPrintScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         BiometricSetUpScreen(rememberNavController())
     }
 

@@ -7,7 +7,7 @@ object AndroidConfig {
     const val versionCode = 1
     const val versionName = "1.0"
     const val applicationId = "com.chachadeveloper.equitymobile"
-    const val kotlinCompilerExtension = "1.4.3"
+    const val kotlinCompilerExtension = "1.5.10"
 
 
     val javaVersion = JavaVersion.VERSION_17

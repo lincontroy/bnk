@@ -30,8 +30,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
-import com.dev.chacha.ui.common.theme.colorEditor
-import com.dev.chacha.ui.common.theme.colorOnEditor
+import com.chachadeveloper.designsystem.theme.colorEditor
+import com.chachadeveloper.designsystem.theme.colorOnEditor
 import kotlinx.coroutines.launch
 import java.lang.Float.max
 import kotlin.math.roundToInt
@@ -148,8 +148,8 @@ fun TopSheetLayout(
         Card(
             shape = RoundedCornerShape(bottomStart = 48.dp, bottomEnd = 48.dp),
             colors = CardDefaults.cardColors(
-                containerColor = colorEditor,
-                contentColor = colorOnEditor,
+                containerColor = com.chachadeveloper.designsystem.theme.colorEditor,
+                contentColor = com.chachadeveloper.designsystem.theme.colorOnEditor,
             ),
             modifier = modifier
                 .fillMaxWidth()
@@ -199,7 +199,7 @@ fun TopSheetLayout(
                             Modifier
                                 .fillMaxWidth()
                                 .weight(1F)
-                                .background(colorEditor)
+                                .background(com.chachadeveloper.designsystem.theme.colorEditor)
                         )
                         sheetContentHalfExpand()
                     }
@@ -210,8 +210,8 @@ fun TopSheetLayout(
                         .background(
                             brush = Brush.verticalGradient(
                                 colors = listOf(
-                                    colorEditor.copy(alpha = 0f),
-                                    colorEditor.copy(
+                                    com.chachadeveloper.designsystem.theme.colorEditor.copy(alpha = 0f),
+                                    com.chachadeveloper.designsystem.theme.colorEditor.copy(
                                         alpha = progress
                                             .roundToInt()
                                             .toFloat()

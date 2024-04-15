@@ -1,19 +1,15 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
+    alias(libs.plugins.equitymobile.android.library)
+    alias(libs.plugins.equitymobile.android.hilt)
+    alias(libs.plugins.equitymobile.android.library.compose)
 }
-
 
 android {
     namespace = "com.dev.chacha.core_network"
-    compileSdk = 33
+
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -27,13 +23,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = AndroidConfig.javaVersion
-        targetCompatibility = AndroidConfig.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = AndroidConfig.jvmTarget
     }
 
 }
@@ -51,9 +40,6 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.bundles.accompanist)
     implementation(libs.retrofit.converter.gson)
-    implementation(libs.bundles.koin)
-    api(libs.bundles.internal.camerax)
-    implementation(libs.lifecycle.runtimeKtx)
     implementation(libs.timber)
     implementation(libs.androidx.splashscreen)
     implementation(libs.kotlin.coroutines.play.services)
@@ -65,7 +51,6 @@ dependencies {
     implementation(libs.coil.gf)
     implementation(libs.timber)
     implementation(libs.accompanist.swiperefresh)
-    implementation(libs.kotlin.coroutines.datetime)
     implementation(libs.zeko.query.builder)
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
@@ -73,24 +58,9 @@ dependencies {
     androidTestImplementation(libs.android.test.espresso)
     androidTestImplementation(libs.compose.ui.test.junit)
     testImplementation(libs.test.junit4)
-    testImplementation(libs.test.robolectric)
     testImplementation(libs.compose.ui.test.junit)
     testImplementation(libs.android.test.espresso)
-    testImplementation(libs.test.navigation)
     testImplementation(libs.test.mockk)
-
-
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
-    implementation(libs.android.hilt.navigation.compose)
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
-    implementation(libs.android.hilt.navigation.compose)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    kapt(libs.android.hilt.androidx.compiler)
-    androidTestImplementation(libs.hilt.android.testing)
-    kaptAndroidTest(libs.hilt.android.compiler)
 
 
 }

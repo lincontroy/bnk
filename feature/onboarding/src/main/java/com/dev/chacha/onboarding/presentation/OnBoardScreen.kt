@@ -43,7 +43,7 @@ import androidx.navigation.compose.rememberNavController
 import com.dev.chacha.onboarding.component.LoaderIntro
 import com.dev.chacha.onboarding.component.OnBoardingPage
 import com.dev.chacha.ui.common.components.StandardToolbar
-import com.dev.chacha.ui.common.theme.HintGray
+import com.chachadeveloper.designsystem.theme.HintGray
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -179,7 +179,7 @@ fun PageIndicator(
     pageSize:Int,
     selectedPage: Int,
     selectedColor: Color = MaterialTheme.colorScheme.primary,
-    unSelectedColor: Color = HintGray
+    unSelectedColor: Color = com.chachadeveloper.designsystem.theme.HintGray
 ) {
     Row(
         modifier = modifier,

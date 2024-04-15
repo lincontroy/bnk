@@ -1,7 +1,6 @@
 package com.chachadeveloper.equitymobile.presentation.activity
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -11,23 +10,19 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.chachadeveloper.designsystem.equitymobile.ChaiDCKE22Theme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.chachadeveloper.equitymobile.presentation.bottomNav.StandardScaffold
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
-import com.dev.chacha.ui.common.theme.syncTheme
 import com.dev.chacha.util.Graph
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
-
 
 
 @AndroidEntryPoint
@@ -36,40 +31,37 @@ class MainActivity : FragmentActivity() {
     private val permissionRequestCode = 123 // You can choose any request code
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        installSplashScreen().setKeepOnScreenCondition { !isDone.value }
         super.onCreate(savedInstanceState)
         setContent {
             val localContext = LocalContext.current
             LaunchedEffect(Unit) {
-                syncTheme(localContext)
-                isDone.value = true
                 checkAndRequestPermission()
             }
             val isSystemDarkState = isSystemInDarkTheme()
-            val systemUiController  = rememberSystemUiController()
+            val systemUiController = rememberSystemUiController()
             val navController = rememberNavController()
             val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-            if (isDone.value) {
-                EquityMobileTheme {
-                    StandardScaffold(
-                        navController = navController,
-                        showBottomBar = navBackStackEntry?.destination?.route in listOf(
-                            Graph.ACCOUNTS_SCREEN_ROUTE,
-                            Graph.HOME_SCREEN_ROUTE,
-                            Graph.MORE_SCREEN_ROUTE,
-                        ),
-                        modifier = Modifier.fillMaxSize(),
-                        onFabClick = {
-                            navController.navigate(Graph.HOME_SCREEN_ROUTE)
-                        }
-                    ) {
-                        RootNavGraph(navController)
+            EquityMobileTheme {
+                StandardScaffold(
+                    navController = navController,
+                    showBottomBar = navBackStackEntry?.destination?.route in listOf(
+                        Graph.ACCOUNTS_SCREEN_ROUTE,
+                        Graph.HOME_SCREEN_ROUTE,
+                        Graph.MORE_SCREEN_ROUTE,
+                    ),
+                    modifier = Modifier.fillMaxSize(),
+                    onFabClick = {
+                        navController.navigate(Graph.HOME_SCREEN_ROUTE)
                     }
+                ) {
+                    RootNavGraph(navController)
                 }
             }
         }
+
     }
+
     private fun checkAndRequestPermission() {
         if (ContextCompat.checkSelfPermission(
                 this,

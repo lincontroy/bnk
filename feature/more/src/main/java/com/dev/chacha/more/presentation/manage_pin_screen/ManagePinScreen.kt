@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.MoreVerticalItem
 import com.dev.chacha.ui.common.components.StandardToolbar
@@ -59,7 +59,7 @@ fun ManagePinScreen(
 
 @Composable
 fun ManagePinScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         ManagePinScreen(
             rememberNavController()
         )

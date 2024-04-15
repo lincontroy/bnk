@@ -15,7 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.more.navigation.MoreScreenNavigation
 import com.dev.chacha.more.presentation.MoreUiEvent
 import com.dev.chacha.more.presentation.MoreViewModel
@@ -193,7 +193,7 @@ private val notificationPreferenceOption = listOf(
 
 @Composable
 fun NotificationPreferencesPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         NotificationPreferences(
             navigateBack = {},
             navController = rememberNavController()

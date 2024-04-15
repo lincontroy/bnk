@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.EquityDivider
 import com.dev.chacha.ui.common.components.StandardToolbar
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 
 
 @Composable
@@ -99,7 +99,7 @@ fun BorrowScreen(
 
 @Composable
 fun FingerPrintScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         BorrowScreen()
     }
 

@@ -35,14 +35,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MySplash"
+        android:theme="@style/Theme.EquityMobile"
         tools:targetApi="31" >
         <activity
             android:name=".presentation.activity.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MySplash" >
+            android:theme="@style/Theme.EquityMobile" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,6 +53,11 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="remove" />
     </application>
 
 </manifest>

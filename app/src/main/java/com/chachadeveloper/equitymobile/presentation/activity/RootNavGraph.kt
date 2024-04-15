@@ -39,7 +39,7 @@ fun RootNavGraph(
     NavHost(
         navController = navController,
         route = Graph.ROOT_ROUTE,
-        startDestination = Graph.ONBOARDING_ROUTE
+        startDestination = Graph.AUTHENTICATION
     ) {
         onboardingNavGraph(navController)
         authNavGraph(navController)

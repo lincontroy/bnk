@@ -24,10 +24,9 @@ import com.dev.chacha.more.presentation.component.MoreUserAccount
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.MoreVerticalItemWithCard
 import com.dev.chacha.ui.common.components.StandardToolbar
-import com.dev.chacha.ui.common.theme.DefaultBackground
-import com.dev.chacha.ui.common.theme.ThemeMode
-import com.dev.chacha.ui.common.theme.appTheme
-import com.dev.chacha.ui.common.theme.switchTheme
+import com.chachadeveloper.designsystem.theme.DefaultBackground
+import com.chachadeveloper.designsystem.theme.ThemeMode
+import com.chachadeveloper.designsystem.theme.switchTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -120,7 +119,7 @@ fun MoreScreen(
                 StandardToolbar(
                     title = "Settings and more",
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor = DefaultBackground
+                        containerColor = com.chachadeveloper.designsystem.theme.DefaultBackground
                     ),
                     showTitleWithUsername = true,
                     userName = "Stephen Chacha",
@@ -131,12 +130,12 @@ fun MoreScreen(
                     }
                 )
             },
-            containerColor = DefaultBackground
+            containerColor = com.chachadeveloper.designsystem.theme.DefaultBackground
         ) { paddingValues ->
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(DefaultBackground)
+                    .background(com.chachadeveloper.designsystem.theme.DefaultBackground)
                     .padding(paddingValues)
                     .padding(start = 24.dp, end = 16.dp)
             ) {
@@ -248,18 +247,18 @@ fun MoreScreen(
         }
     }
 
-    fun handleSwitchTheme(mode: ThemeMode) {
+    fun handleSwitchTheme(mode: com.chachadeveloper.designsystem.theme.ThemeMode) {
         coroutineScope.launch {
-            switchTheme(context, mode)
+            com.chachadeveloper.designsystem.theme.switchTheme(context, mode)
 //            onClose()
         }
     }
 
 }
 
-fun handleSwitchTheme(mode: ThemeMode,context:Context,coroutineScope: CoroutineScope) {
+fun handleSwitchTheme(mode: com.chachadeveloper.designsystem.theme.ThemeMode, context:Context, coroutineScope: CoroutineScope) {
     coroutineScope.launch {
-        switchTheme(context, mode)
+        com.chachadeveloper.designsystem.theme.switchTheme(context, mode)
 //            onClose()
     }
 }

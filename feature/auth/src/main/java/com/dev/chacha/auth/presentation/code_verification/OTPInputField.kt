@@ -46,7 +46,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.dev.chacha.data.BiometricViewModel
-import com.dev.chacha.ui.common.theme.HintGray
+import com.chachadeveloper.designsystem.theme.HintGray
 
 
 @SuppressLint("NewApi")
@@ -233,7 +233,7 @@ fun PermissionBottomSheet(
         Text(
             text = message,
             style = MaterialTheme.typography.titleSmall,
-            color = HintGray
+            color = com.chachadeveloper.designsystem.theme.HintGray
         )
 
 
@@ -295,11 +295,11 @@ fun OTPCell(
 
     Surface(
         modifier = modifier
-            .background(HintGray, MaterialTheme.shapes.small)
+            .background(com.chachadeveloper.designsystem.theme.HintGray, MaterialTheme.shapes.small)
             .aspectRatio(1f)
             .border(
                 1.dp,
-                color = HintGray,
+                color = com.chachadeveloper.designsystem.theme.HintGray,
                 MaterialTheme.shapes.small
             )
     ) {

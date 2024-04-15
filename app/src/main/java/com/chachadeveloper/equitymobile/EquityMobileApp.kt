@@ -1,6 +1,7 @@
 package com.chachadeveloper.equitymobile
 
 import android.app.Application
+import com.google.firebase.crashlytics.BuildConfig
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 

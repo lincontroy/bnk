@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.extensions.greeting
 import com.dev.chacha.ui.R
 import kotlinx.coroutines.delay
@@ -170,7 +170,7 @@ fun WelcomeScreen(
 
 @Composable
 fun AuthScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         WelcomeScreen(
             onSignUp = { /*TODO*/ }) {
 

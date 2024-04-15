@@ -12,10 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.StandardToolbar
-import com.dev.chacha.ui.common.theme.primaryPink
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,7 +60,7 @@ fun NotificationScreen(
                         ) {
                             Icon(
                                 imageVector = Icons.Filled.Settings, contentDescription = null,
-                                tint = primaryPink,
+                                tint = com.chachadeveloper.designsystem.theme.PrimaryPink,
                                 modifier = Modifier.size(60.dp)
                             )
                             Column(modifier = Modifier.padding(start = 10.dp)) {
@@ -76,7 +74,7 @@ fun NotificationScreen(
                             Spacer(modifier = Modifier.weight(1f))
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_chevron_right),
-                                tint = primaryPink,
+                                tint = com.chachadeveloper.designsystem.theme.PrimaryPink,
                                 contentDescription = null,
 
                                 )
@@ -93,7 +91,7 @@ fun NotificationScreen(
 
 @Composable
 fun NotificationScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         NotificationScreen {
         }
     }

@@ -9,7 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.ui.common.components.EquityButton
 import com.dev.chacha.ui.common.components.StandardToolbar
 
@@ -73,7 +73,7 @@ fun ChangeLanguageScreen() {
 
 @Composable
 fun ChangeLanguagePreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         ChangeLanguageScreen()
     }
 }

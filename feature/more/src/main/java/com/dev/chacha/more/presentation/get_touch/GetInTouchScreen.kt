@@ -19,7 +19,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.rememberBottomSheetState
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -40,7 +39,7 @@ import androidx.navigation.NavController
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.MoreVerticalItem
 import com.dev.chacha.ui.common.components.StandardToolbar
-import com.dev.chacha.ui.common.theme.HintGray
+import com.chachadeveloper.designsystem.theme.HintGray
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -128,7 +127,7 @@ fun GetInTouchScreen(
                         Text(
                             text = stringResource(R.string.get_in_touch_desc),
                             style = MaterialTheme.typography.titleSmall,
-                            color = HintGray
+                            color = com.chachadeveloper.designsystem.theme.HintGray
                         )
                     }
 

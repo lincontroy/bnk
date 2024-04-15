@@ -1,22 +1,15 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("dagger.hilt.android.plugin")
-    id("org.jlleitschuh.gradle.ktlint")
-    id("io.gitlab.arturbosch.detekt")
-    kotlin("kapt")
-    id("kotlin-parcelize")
-
+    alias(libs.plugins.equitymobile.android.library)
+    alias(libs.plugins.equitymobile.android.hilt)
+    alias(libs.plugins.equitymobile.android.library.compose)
 }
 
 
 android {
     namespace = "com.dev.chacha.ui"
-    compileSdk = 33
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -37,19 +30,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = AndroidConfig.javaVersion
-        targetCompatibility = AndroidConfig.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = AndroidConfig.jvmTarget
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = AndroidConfig.kotlinCompilerExtension
-    }
 
     packaging {
         resources {
@@ -62,36 +42,21 @@ android {
 }
 
 dependencies {
-
-    implementation(platform(libs.compose.bom))
-    implementation(libs.android.coreKtx)
-    implementation(libs.android.appCompat)
-    implementation(libs.android.material)
-    implementation(libs.bundles.compose)
-    implementation(libs.bundles.accompanist)
-    implementation(libs.compose.materialIcons)
-    implementation(libs.compose.materialWindow)
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.tooling)
-    implementation(libs.compose.compiler)
-    implementation(libs.compose.ui.tooling.preview)
+    implementation(projects.core.designsystem)
+    api(libs.android.appCompat)
+    api(libs.android.material)
+    api(libs.bundles.accompanist)
+    api(libs.androidx.dataStore.core)
+    api(libs.datastore)
+    api(libs.androidx.lifecycle.runtimeKtx)
+    api(libs.timber)
     implementation(libs.coil.gf)
-    implementation(libs.datastore)
-    implementation(libs.lifecycle.runtimeKtx)
-    implementation(libs.timber)
-    implementation(libs.android.hilt)
-    implementation(libs.androidx.splashscreen)
-    implementation(libs.kotlin.coroutines.play.services)
-    implementation(libs.gms.play.services.auth)
-    implementation(libs.accompanist.flowlayout)
-    implementation(libs.lottie.compose)
-    implementation(libs.gson.gson)
-    implementation(libs.accompanist.swiperefresh)
-    implementation(libs.kotlin.coroutines.datetime)
-    implementation(libs.zeko.query.builder)
-    kapt(libs.android.hilt.compiler)
-    implementation(libs.android.hilt.navigation.compose)
-    kapt(libs.android.hilt.androidx.compiler)
+    api(libs.androidx.splashscreen)
+    api(libs.kotlin.coroutines.play.services)
+    api(libs.gms.play.services.auth)
+    api(libs.lottie.compose)
+    api(libs.accompanist.swiperefresh)
+    api(libs.kotlinx.datetime)
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
 
@@ -101,10 +66,8 @@ dependencies {
     androidTestImplementation(libs.compose.ui.test.junit)
 
     testImplementation(libs.test.junit4)
-    testImplementation(libs.test.robolectric)
     testImplementation(libs.compose.ui.test.junit)
     testImplementation(libs.android.test.espresso)
-    testImplementation(libs.test.navigation)
     testImplementation(libs.test.mockk)
 
 }

@@ -1,20 +1,15 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("dagger.hilt.android.plugin")
-    id("org.jlleitschuh.gradle.ktlint")
-    id("io.gitlab.arturbosch.detekt")
-    kotlin("kapt")
+    alias(libs.plugins.equitymobile.android.library)
+    alias(libs.plugins.equitymobile.android.hilt)
+    alias(libs.plugins.equitymobile.android.library.compose)
 }
 
 
 android {
     namespace = "com.dev.chacha.auth"
-    compileSdk = 33
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -35,22 +30,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = AndroidConfig.javaVersion
-        targetCompatibility = AndroidConfig.javaVersion
-    }
-    kotlinOptions {
-        jvmTarget = AndroidConfig.jvmTarget
-        freeCompilerArgs + "-Xjvm-default=all"
-
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = AndroidConfig.kotlinCompilerExtension
-    }
-
 
     packaging {
         resources {
@@ -62,21 +41,21 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.domain))
-    implementation(project(Modules.ui))
-    implementation(project(Modules.util))
-    implementation(project(Modules.data))
-
+    implementation(projects.domain)
+    implementation(projects.core.designsystem)
+    implementation(projects.core.ui)
+    implementation(projects.core.util)
+    implementation(projects.data)
 
     implementation(platform(libs.compose.bom))
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
+    implementation(libs.biometric)
     implementation(libs.bundles.compose)
     implementation(libs.bundles.lifecycle)
-    implementation(libs.lifecycle.runtimeKtx)
+    implementation(libs.bundles.accompanist)
     implementation(libs.timber)
-    implementation(libs.android.hilt)
     implementation(libs.androidx.splashscreen)
     implementation(libs.kotlin.coroutines.play.services)
     implementation(libs.gms.play.services.auth)
@@ -84,27 +63,14 @@ dependencies {
     implementation(libs.lottie.compose)
     implementation(libs.gson.gson)
     implementation(libs.accompanist.swiperefresh)
-    implementation(libs.kotlin.coroutines.datetime)
-    implementation(libs.zeko.query.builder)
-    kapt(libs.android.hilt.compiler)
-    implementation(libs.android.hilt.navigation.compose)
-    kapt(libs.android.hilt.androidx.compiler)
     debugImplementation(libs.compose.ui.tooling)
     debugImplementation(libs.compose.ui.test.manifest)
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.25.1")
-    implementation ("com.google.accompanist:accompanist-permissions:0.21.1-beta")
-    implementation ("androidx.biometric:biometric:1.1.0")
-
-
     androidTestImplementation(libs.android.test.junit4)
     androidTestImplementation(libs.android.test.espresso)
     androidTestImplementation(libs.compose.ui.test.junit)
-
     testImplementation(libs.test.junit4)
-    testImplementation(libs.test.robolectric)
     testImplementation(libs.compose.ui.test.junit)
     testImplementation(libs.android.test.espresso)
-    testImplementation(libs.test.navigation)
     testImplementation(libs.test.mockk)
 
 

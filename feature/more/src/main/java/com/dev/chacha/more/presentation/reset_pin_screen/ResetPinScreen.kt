@@ -18,7 +18,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.AppTextField
 import com.dev.chacha.ui.common.components.ConditionRow
@@ -190,7 +190,7 @@ fun ResetPinScreen(
 
 @Composable
 fun FingerPrintScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         ResetPinScreen(
             navController = rememberNavController()
         )

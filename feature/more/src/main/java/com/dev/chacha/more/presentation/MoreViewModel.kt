@@ -1,15 +1,11 @@
 package com.dev.chacha.more.presentation
 
-import android.content.Context
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dev.chacha.data.use_case.BiometricUseCase
-import com.dev.chacha.ui.common.theme.ThemeMode
-import com.dev.chacha.ui.common.theme.switchTheme
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

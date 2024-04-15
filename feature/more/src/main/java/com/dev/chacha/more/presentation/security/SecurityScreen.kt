@@ -25,7 +25,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.data.BiometricUiEvent
 import com.dev.chacha.data.BiometricViewModel
 import com.dev.chacha.more.navigation.MoreScreenNavigation
@@ -179,7 +179,7 @@ private val securityItemOptions = listOf(
 
 @Composable
 fun ManageSecurityQnPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         SecurityScreen(
             rememberNavController()
         )

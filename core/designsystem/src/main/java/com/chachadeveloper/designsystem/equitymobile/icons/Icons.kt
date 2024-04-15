@@ -1,0 +1,2 @@
+
+package com.chachadeveloper.designsystem.equitymobile.icons

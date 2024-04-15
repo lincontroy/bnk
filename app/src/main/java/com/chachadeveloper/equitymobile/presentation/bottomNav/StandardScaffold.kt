@@ -15,23 +15,18 @@ import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.FloatingActionButtonDefaults
 import androidx.compose.material.Scaffold
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.Person
-import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.chachadeveloper.designsystem.theme.PrimaryPink
 import com.dev.chacha.ui.R
-import com.dev.chacha.ui.common.theme.md_theme_light_primary
 import com.dev.chacha.util.Graph.ACCOUNTS_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.HOME_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.MORE_SCREEN_ROUTE
@@ -115,7 +110,7 @@ fun StandardScaffold(
                             .border(
                                 2.dp,
                                 if (navController.currentDestination?.route == HOME_SCREEN_ROUTE) {
-                                    md_theme_light_primary
+                                    PrimaryPink
                                 } else {
                                     Color.DarkGray
                                 },

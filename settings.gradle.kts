@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
         mavenCentral()
@@ -15,6 +16,8 @@ dependencyResolutionManagement {
         maven { url = uri("https://jitpack.io") }
     }
 }
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 
 rootProject.name = "EquityMobile"
@@ -33,3 +36,4 @@ include(":core-network")
 include(":feature:more")
 include(":feature:onboarding")
 include(":common")
+include(":core:designsystem")
