@@ -1,14 +1,16 @@
+@file:Suppress("unused")
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("java-library")
-    id("org.jetbrains.kotlin.jvm")
+    alias(libs.plugins.equitymobile.android.library)
+    alias(libs.plugins.equitymobile.android.library.compose)
 
 
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+android {
+    namespace = "com.dev.chacha.domain"
 }
+
 
 dependencies {
     implementation(libs.kotlinx.coroutines.core)

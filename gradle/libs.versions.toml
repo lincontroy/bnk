@@ -41,6 +41,7 @@ firebaseCrashlyticsPlugin = "2.9.9"
 firebasePerfPlugin = "1.4.2"
 gmsPlugin = "4.4.1"
 gms-play-services-auth = "21.0.0"
+gms-play-phone-auth = "18.0.2"
 gson = "2.10.1"
 hilt = "2.51"
 hiltExt = "1.1.0"
@@ -56,6 +57,7 @@ msz-progress-indicator = "0.2.0"
 material = "1.11.0"
 moduleGraph = "2.5.0"
 okhttp = "4.12.0"
+one-tap = "1.0.3"
 paging-common = "3.2.1"
 paging-compose = "3.2.1"
 protobuf = "3.25.2"
@@ -66,6 +68,7 @@ retrofitKotlinxSerializationJson = "1.0.0"
 robolectric = "4.11.1"
 room = "2.6.1"
 roborazzi = "1.7.0"
+runtime = "2.9.0"
 spotless = "6.4.2"
 zxing = "3.5.0"
 test-junit4 = "4.13.2"
@@ -78,6 +81,7 @@ zeko-query-builder = "1.4.4"
 vico = "1.11.3"
 compose = "1.6.4"
 kotlin2 = "1.9.0"
+components-resources = "1.5.3"
 
 
 
@@ -138,35 +142,33 @@ androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", versi
 androidx-window-core = { group = "androidx.window", name = "window-core", version.ref = "androidxWindowManager" }
 androidx-work-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "androidxWork" }
 androidx-work-testing = { group = "androidx.work", name = "work-testing", version.ref = "androidxWork" }
-
 biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
 biometric-ktx = { module = "androidx.biometric:biometric-ktx", version.ref = "biometric" }
-
 compose-preview-customview = { module = "androidx.customview:customview", version.ref = "compose-preview-customview" }
 compose-preview-customview-poolingcontainer = { module = "androidx.customview:customview-poolingcontainer", version.ref = "compose-preview-customview-poolingcontainer" }
 compose-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "compose-constraintlayout" }
-
+compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "components-resources" }
 coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 coil-gf = { module = "io.coil-kt:coil-gif", version.ref = "coil-gf" }
-
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-cloud-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
+firebase-auth-ktx = { group = "com.google.firebase",name="firebase-auth-ktx" }
+firebase-database-ktx = { group = "com.google.firebase",name="firebase-database-ktx" }
+gms-play-phone-auth = { module ="com.google.android.gms:play-services-auth-api-phone", version.ref = "gms-play-phone-auth" }
 gms-play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "gms-play-services-auth" }
 gson-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
-
-
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
 hilt-common = { module = "androidx.hilt:hilt-common", version.ref = "hiltExt"}
-
 javax-inject = { module = "javax.inject:javax.inject", version = "1" }
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
@@ -175,7 +177,6 @@ ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = 
 ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
-
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-guava = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-guava", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
@@ -184,14 +185,13 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx",name="kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlin-coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlin-coroutines-play-services = { group = "org.jetbrains.kotlinx", name= "kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutines" }
-
-
 lint-api = { group = "com.android.tools.lint", name = "lint-api", version.ref = "androidTools" }
 lint-checks = { group = "com.android.tools.lint", name = "lint-checks", version.ref = "androidTools" }
 lint-tests = { group = "com.android.tools.lint", name = "lint-tests", version.ref = "androidTools" }
 lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottie-compose" }
 msz-progress-indicator = { module = "com.ehsanmsz:msz-progress-indicator", version.ref = "msz-progress-indicator" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+one-tap-compose = { module = "com.github.stevdza-san:OneTapCompose", version.ref = "one-tap" }
 paging-common = { module = "androidx.paging:paging-common-ktx", version.ref = "paging-common" }
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging-compose" }
 protobuf-kotlin-lite = { group = "com.google.protobuf", name = "protobuf-kotlin-lite", version.ref = "protobuf" }
@@ -205,22 +205,18 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
-
-
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 test-junit4 = { module = "junit:junit", version.ref = "test-junit4" }
 test-androidx-core = { module = "androidx.test:core-ktx", version.ref = "androidxTestCore" }
 test-mockk = { module = "io.mockk:mockk", version.ref = "test-mockk" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
-
-
 vico-compose = { group = "com.patrykandpatrick.vico", name = "compose", version.ref = "vico" }
 vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
 vico-core = { group = "com.patrykandpatrick.vico", name = "core", version.ref = "vico" }
-
 zxing-core = { module = "com.google.zxing:core", version.ref = "zxing" }
 zeko-query-builder = { module = "com.github.gissilali:Zeko-SQL-Builder", version.ref = "zeko-query-builder" }
+work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "runtime"}
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -262,19 +258,13 @@ compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 
 
-
-
-
-
-
 [bundles]
 accompanist = ["accompanist-animation","accompanist-flowlayout","accompanist-indicator","accompanist-permissions","accompanist-material","accompanist-navigation","accompanist-insets","accompanist-pager","accompanist-permission","accompanist-swiperefresh","accompanist-systemui"]
-compose = ["compose-foundation","msz-progress-indicator","androidx-navigation-compose","compose-materialWindow", "compose-material","coil-compose", "compose-activity", "compose-compiler", "compose-runtime", "compose-material-3", "compose-materialIcons", "compose-runtimeLivedata", "compose-ui", "compose-ui-util", "compose-ui-tooling", "compose-ui-tooling-preview", "paging-compose", "compose-preview-customview", "compose-preview-customview-poolingcontainer", "compose-constraintlayout"]
+compose = ["compose-components-resources","compose-foundation","msz-progress-indicator","androidx-navigation-compose","compose-materialWindow", "compose-material","coil-compose", "compose-activity", "compose-compiler", "compose-runtime", "compose-material-3", "compose-materialIcons", "compose-runtimeLivedata", "compose-ui", "compose-ui-util", "compose-ui-tooling", "compose-ui-tooling-preview", "paging-compose", "compose-preview-customview", "compose-preview-customview-poolingcontainer", "compose-constraintlayout"]
 lifecycle = ["androidx-lifecycle-viewModelCompose", "androidx-lifecycle-runtimeCompose","androidx-lifecycle-ktx","androidx-lifecycle-runtimeKtx","androidx-ifecycle-livedataKtx", "androidx-lifecycle-viewmodel"]
 room = ["room-ktx", "room-paging", "room-runtime"]
 ktor = ["ktor-core", "ktor-android", "ktor-json", "ktor-content-negotiation"]
-firebase = ["firebase-cloud-messaging", "firebase-crashlytics", "firebase-analytics", "firebase-performance"]
-
+firebase = ["firebase-auth","firebase-cloud-messaging", "firebase-crashlytics", "firebase-analytics", "firebase-performance"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
@@ -313,4 +303,4 @@ equitymobile-android-lint = { id = "equitymobile.android.lint", version = "unspe
 equitymobile-android-room = { id = "equitymobile.android.room", version = "unspecified" }
 equitymobile-android-test = { id = "equitymobile.android.test", version = "unspecified" }
 equitymobile-jvm-library = { id = "equitymobile.jvm.library", version = "unspecified" }
-jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin2" }
+jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

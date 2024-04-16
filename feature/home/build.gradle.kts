@@ -46,7 +46,8 @@ dependencies {
     implementation(projects.core.ui)
     implementation(projects.core.util)
     implementation(projects.data)
-    implementation(projects.coreDatabase)
+    implementation(projects.core.database)
+    implementation(projects.core.network)
 
     implementation(platform(libs.compose.bom))
     implementation(libs.android.coreKtx)

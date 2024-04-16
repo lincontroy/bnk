@@ -15,6 +15,7 @@ import androidx.compose.material.FabPosition
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.FloatingActionButtonDefaults
 import androidx.compose.material.Scaffold
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -25,7 +26,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.chachadeveloper.designsystem.theme.PrimaryPink
 import com.dev.chacha.ui.R
 import com.dev.chacha.util.Graph.ACCOUNTS_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.HOME_SCREEN_ROUTE
@@ -56,8 +56,6 @@ fun StandardScaffold(
     content: @Composable () -> Unit
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
-
     Scaffold(
         bottomBar = {
             if (showBottomBar) {
@@ -102,24 +100,21 @@ fun StandardScaffold(
                         hoveredElevation = 0.dp
                     )
                 ) {
-
-                    Box (
+                    Box(
                         modifier = Modifier
                             .padding(8.dp)
                             .size(64.dp)
-                            .border(
-                                2.dp,
+                            .border(2.dp,
                                 if (navController.currentDestination?.route == HOME_SCREEN_ROUTE) {
-                                    PrimaryPink
+                                    MaterialTheme.colorScheme.primary
                                 } else {
                                     Color.DarkGray
                                 },
-                                CircleShape
+                                CircleShape,
 
-                            )
-                        ,
+                            ),
                         contentAlignment = Alignment.Center
-                    ){
+                    ) {
                         Image(
                             painter = painterResource(id = R.drawable.equitybank_icon),
                             contentDescription = null,
@@ -128,12 +123,10 @@ fun StandardScaffold(
                             } else {
                                 ColorFilter.tint(Color.DarkGray)
                             },
-                            modifier = Modifier
-                                .size(28.dp)
+                            modifier = Modifier.size(28.dp)
 
                         )
                     }
-
 
 
                 }

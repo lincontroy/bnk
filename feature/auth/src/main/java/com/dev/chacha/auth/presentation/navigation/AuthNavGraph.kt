@@ -6,7 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.dev.chacha.auth.presentation.auth_screen.WelcomeScreen
+import com.dev.chacha.auth.presentation.welcome.WelcomeScreen
 import com.dev.chacha.auth.presentation.biometric.BiometricSetUpScreen
 import com.dev.chacha.auth.presentation.code_verification.SmsVerificationScreen
 import com.dev.chacha.auth.presentation.create_password.CreatePasswordScreen

@@ -1,17 +1,15 @@
 package com.chachadeveloper.equitymobile.presentation.activity
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.dev.chacha.auth.presentation.navigation.authNavGraph
-import com.dev.chacha.onboarding.presentation.OnBoardViewModel
 import com.dev.chacha.home.presentation.navigation.homeScreenNavGraph
 import com.dev.chacha.home.presentation.navigation.accountScreenNavGraph
 import com.dev.chacha.loans.presentation.navigation.borrowNavGraph
-import com.dev.chacha.more.navigation.moreScreenNavGraph
+import com.dev.chacha.settings.navigation.moreScreenNavGraph
 import com.dev.chacha.onboarding.navigation.onboardingNavGraph
 import com.dev.chacha.savings.navigation.savingsNavGraph
 import com.dev.chacha.transaction.presentation.buy_airtime.buyAirtimeNavGraph
@@ -30,16 +28,15 @@ import com.dev.chacha.transaction.presentation.withdraw_cash.withDrawCashAgentNa
 import com.dev.chacha.util.Graph
 
 
+@RequiresApi(Build.VERSION_CODES.P)
 @Composable
 fun RootNavGraph(
     navController: NavHostController
 ) {
-    val onBoardViewModel: OnBoardViewModel = hiltViewModel()
-    val isOnBoardingCompleted by onBoardViewModel.isOnBoardingCompleted().collectAsState(false)
     NavHost(
         navController = navController,
         route = Graph.ROOT_ROUTE,
-        startDestination = Graph.AUTHENTICATION
+        startDestination = Graph.HOME_SCREEN_ROUTE
     ) {
         onboardingNavGraph(navController)
         authNavGraph(navController)

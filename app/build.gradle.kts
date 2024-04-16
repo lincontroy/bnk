@@ -31,21 +31,11 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = AndroidConfig.javaVersion
-        targetCompatibility = AndroidConfig.javaVersion
-    }
+
     kotlinOptions {
-        jvmTarget = AndroidConfig.jvmTarget
+        freeCompilerArgs + "-Xjvm-default=all"
     }
-    buildFeatures {
-        compose = true
-        viewBinding = true
-        buildConfig = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = AndroidConfig.kotlinCompilerExtension
-    }
+
     packaging {
         resources {
             pickFirsts.add("META-INF/io.netty.versions.properties")
@@ -60,15 +50,15 @@ dependencies {
     implementation(projects.core.util)
     implementation(projects.data)
     implementation(projects.domain)
-    implementation(projects.coreNetwork)
-    implementation(projects.coreDatabase)
+    implementation(projects.core.database)
+    implementation(projects.core.network)
     implementation(projects.feature.home)
     implementation(projects.feature.transaction)
     implementation(projects.feature.loans)
     implementation(projects.feature.savings)
     implementation(projects.feature.auth)
-    implementation(projects.feature.more)
     implementation(projects.feature.onboarding)
+    implementation(project(":feature:settings"))
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3.adaptive)
@@ -77,22 +67,15 @@ dependencies {
     implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.compose.runtime.tracing)
     implementation(libs.androidx.core.ktx)
-
-
-
-    implementation(platform(libs.compose.bom))
+    implementation(libs.work.runtime)
     implementation(libs.datastore)
-    implementation(libs.androidx.splashscreen)
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
     implementation(libs.timber)
-    implementation(libs.accompanist.navigation)
-    implementation(libs.accompanist.swiperefresh)
-    implementation(libs.accompanist.animation)
-    implementation(libs.bundles.compose)
     implementation(libs.bundles.accompanist)
     testImplementation(libs.test.junit4)
+    androidTestImplementation(libs.androidx.test.ext)
 
 
 
