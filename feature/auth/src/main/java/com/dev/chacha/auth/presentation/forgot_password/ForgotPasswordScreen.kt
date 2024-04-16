@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.AppTextField
 import com.dev.chacha.ui.common.components.StandardToolbar
@@ -72,7 +72,7 @@ fun ForgotPasswordScreen(
 
 @Composable
 fun ForgotPasswordScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         ForgotPasswordScreen(onClick = { /*TODO*/ }) {
 
         }

@@ -31,8 +31,8 @@ import com.dev.chacha.ui.common.components.StandardToolbar
 import com.dev.chacha.ui.common.modal_sheet.EquityModalSheet
 import com.dev.chacha.ui.common.modal_sheet_layouts.StandardModalSheetLayout
 import com.dev.chacha.ui.common.modal_sheet_layouts.TransactionBottomSheetType
-import com.dev.chacha.ui.common.theme.DefaultBackground
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.DefaultBackground
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.util.Graph.BORROW_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.SAVINGS_SCREEN_ROUTE
 import com.dev.chacha.util.Graph.TRANSACTION_SCREEN_ROUTE
@@ -177,7 +177,7 @@ fun HomeScreen(
 
 @Composable
 fun HomeScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         HomeScreen(
             navController = rememberNavController(),
             onClickAction = {}

@@ -1,4 +1,7 @@
+@file:Suppress("UnstableApiUsage")
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
         mavenCentral()
@@ -16,7 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "EquityMobile"
 include(":app")
 include (":feature:auth")
@@ -28,8 +31,8 @@ include (":data")
 include (":domain")
 include(":core:ui")
 include(":core:util")
-include(":core-database")
-include(":core-network")
-include(":feature:more")
+include(":feature:settings")
 include(":feature:onboarding")
-include(":common")
+include(":core:designsystem")
+include(":core:database")
+include(":core:network")

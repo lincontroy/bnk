@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1059348418009",
+    "project_id": "equitymobile-79a01",
+    "storage_bucket": "equitymobile-79a01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059348418009:android:c9feb5154850bfcdfb5dc8",
+        "android_client_info": {
+          "package_name": "com.chachadeveloper.equitymobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPQZqIOSkh76XbDzjxgnxfM5P4UwdDc_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

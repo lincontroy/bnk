@@ -1,22 +1,16 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("com.google.devtools.ksp")
-    id("org.jlleitschuh.gradle.ktlint")
-    id("dagger.hilt.android.plugin")
-    id("io.gitlab.arturbosch.detekt")
-    kotlin("kapt")
-    kotlin("plugin.serialization")
-    id("kotlin-parcelize")
+    alias(libs.plugins.equitymobile.android.library)
+    alias(libs.plugins.equitymobile.android.hilt)
+    alias(libs.plugins.equitymobile.android.library.compose)
+    alias(libs.plugins.kotlin.serialization)
 }
+
 
 android {
     namespace = "com.dev.chacha.data"
-    compileSdk = 33
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -50,46 +44,27 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-
-        sourceCompatibility = AndroidConfig.javaVersion
-        targetCompatibility = AndroidConfig.javaVersion
     }
 
-    kotlinOptions {
-        jvmTarget = AndroidConfig.jvmTarget
-    }
 }
 
 dependencies {
-    implementation(project(Modules.domain))
+    implementation(projects.domain)
+
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
-    implementation(libs.android.material)
-    api(libs.kotlin.coroutines.datetime)
-    implementation(libs.android.hilt)
-    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.ktor)
     implementation(libs.timber)
-    kapt(libs.android.hilt.compiler)
     implementation(libs.datastore)
-    implementation(libs.room.runtime)
-    ksp(libs.room.compiler)
-    implementation(libs.room.ktx)
+    implementation(libs.gms.play.services.auth)
+    implementation(libs.gms.play.phone.auth)
+    implementation(libs.firebase.auth)
+    implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlin.coroutines.android)
-    implementation(libs.ktor.core)
-    implementation(libs.ktor.android)
-    implementation(libs.ktor.content.negotiation)
-    implementation(libs.ktor.json)
-    implementation(libs.ktor.auth)
-    implementation(libs.ktor.logging)
-
     androidTestImplementation(libs.android.test.junit4)
     androidTestImplementation(libs.android.test.espresso)
-
-    testImplementation(libs.test.junit.ktx)
     testImplementation(libs.test.junit4)
-    testImplementation(libs.kotlin.coroutines.test)
     testImplementation(libs.test.androidx.core)
-    testImplementation(libs.test.robolectric)
     testImplementation(libs.ktor.mock)
     testImplementation(libs.test.mockk)
 }

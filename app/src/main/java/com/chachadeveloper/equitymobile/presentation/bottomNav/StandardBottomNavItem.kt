@@ -4,17 +4,16 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dev.chacha.ui.common.theme.md_theme_light_primary
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 
 
 @Composable
@@ -26,7 +25,7 @@ fun RowScope.StandardBottomNavItem(
     contentDescription: String? = null,
     selected: Boolean = false,
     alertCount: Int? = null,
-    selectedColor: Color = md_theme_light_primary,
+    selectedColor: Color = MaterialTheme.colorScheme.primary,
     unselectedColor: Color = Color(0xFF8B8B8B),
     enabled: Boolean = true,
     onClick: () -> Unit
@@ -61,12 +60,11 @@ fun RowScope.StandardBottomNavItem(
         },
         label = {
             if (title != null) {
-               Text(
+                Text(
                     text = title,
                     textAlign = TextAlign.Center,
                     fontSize = 11.sp,
                     color = if (selected) selectedColor else unselectedColor,
-
                     )
             }
         },

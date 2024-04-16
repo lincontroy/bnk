@@ -1,17 +1,26 @@
-
 @file:Suppress("UnstableApiUsage")
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.android.library) apply false
-    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.android.test) apply false
     alias(libs.plugins.ktlint)
     alias(libs.plugins.spotless)
-    alias(libs.plugins.ksp) apply true
+    alias(libs.plugins.jvm) apply false
+    alias(libs.plugins.firebase.crashlytics) apply false
+    alias(libs.plugins.firebase.perf) apply false
+    alias(libs.plugins.gms) apply false
     alias(libs.plugins.detekt)
     alias(libs.plugins.dokka)
-    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.hilt.plugin) apply false
+    alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.secrets) apply false
+    alias(libs.plugins.room) apply false
+    alias(libs.plugins.parcelize) apply false
+    alias(libs.plugins.module.graph) apply true
+    alias(libs.plugins.jetbrainsKotlinAndroid) apply false // Plugin applied to allow module graph generation
+
 }
 
 
@@ -24,6 +33,13 @@ allprojects {
         verbose.set(true)
         filter {
             exclude { element -> element.file.path.contains("generated/") }
+        }
+    }
+
+
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
         }
     }
 }

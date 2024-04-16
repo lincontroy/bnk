@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.dev.chacha.ui.common.theme.EquityMobileTheme
+import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.auth.presentation.navigation.AuthScreen
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.StandardToolbar
@@ -96,7 +96,7 @@ fun ChooseVerificationScreen(
 
 @Composable
 fun FingerPrintScreenPreview() {
-    EquityMobileTheme {
+    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
         ChooseVerificationScreen(rememberNavController())
     }
 

@@ -20,7 +20,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dev.chacha.ui.R
-import com.dev.chacha.ui.common.theme.primaryGray
 
 @Composable
 fun SecurityItemRow(
@@ -81,7 +80,7 @@ fun SecurityItemRow(
             )
         }
         Divider(
-            color = primaryGray,
+            color = com.chachadeveloper.designsystem.theme.PrimaryGray,
             thickness = 1.dp,
             modifier = Modifier.padding(start = 64.dp, end = 8.dp)
         )

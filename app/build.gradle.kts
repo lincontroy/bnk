@@ -1,23 +1,20 @@
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("dagger.hilt.android.plugin")
-    id("org.jlleitschuh.gradle.ktlint")
-    id("io.gitlab.arturbosch.detekt")
-
+    alias(libs.plugins.equitymobile.android.application)
+    alias(libs.plugins.equitymobile.android.application.compose)
+    alias(libs.plugins.equitymobile.android.hilt)
+    alias(libs.plugins.equitymobile.android.application.firebase)
     kotlin("kapt")
 }
 
 android {
-    namespace = AndroidConfig.applicationId
-    compileSdk = AndroidConfig.compileSdk
-
+    namespace = "com.chachadeveloper.equitymobile"
+    
     defaultConfig {
-        applicationId = AndroidConfig.applicationId
-        minSdk = AndroidConfig.minSdk
-        targetSdk = AndroidConfig.targetSdk
-        versionCode = AndroidConfig.versionCode
-        versionName = AndroidConfig.versionName
+        applicationId = "com.chachadeveloper.equitymobile"
+
+        versionCode = 1
+        versionName = "1.0"
 
         testInstrumentationRunner= "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -34,21 +31,11 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = AndroidConfig.javaVersion
-        targetCompatibility = AndroidConfig.javaVersion
-    }
+
     kotlinOptions {
-        jvmTarget = AndroidConfig.jvmTarget
+        freeCompilerArgs + "-Xjvm-default=all"
     }
-    buildFeatures {
-        compose = true
-        viewBinding = true
-        buildConfig = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = AndroidConfig.kotlinCompilerExtension
-    }
+
     packaging {
         resources {
             pickFirsts.add("META-INF/io.netty.versions.properties")
@@ -58,50 +45,39 @@ android {
 }
 
 dependencies {
-    implementation(project(Modules.data))
-    implementation(project(Modules.domain))
+    implementation(projects.core.designsystem)
+    implementation(projects.core.ui)
+    implementation(projects.core.util)
+    implementation(projects.data)
+    implementation(projects.domain)
+    implementation(projects.core.database)
+    implementation(projects.core.network)
+    implementation(projects.feature.home)
+    implementation(projects.feature.transaction)
+    implementation(projects.feature.loans)
+    implementation(projects.feature.savings)
+    implementation(projects.feature.auth)
+    implementation(projects.feature.onboarding)
+    implementation(project(":feature:settings"))
 
-    implementation(project(Modules.ui))
-    implementation(project(Modules.util))
-
-    implementation(project(Modules.coreNetwork))
-    implementation(project(Modules.coreDatabase))
-
-    implementation(project(Modules.home))
-    implementation(project(Modules.transaction))
-    implementation(project(Modules.loans))
-    implementation(project(Modules.savings))
-    implementation(project(Modules.auth))
-    implementation(project(Modules.more))
-    implementation(project(Modules.onboarding))
-
-    implementation(platform(libs.compose.bom))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.material3.adaptive)
+    implementation(libs.androidx.compose.material3.adaptive.layout)
+    implementation(libs.androidx.compose.material3.adaptive.navigation)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.compose.runtime.tracing)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.work.runtime)
     implementation(libs.datastore)
-    implementation(libs.androidx.splashscreen)
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
     implementation(libs.timber)
-    implementation(libs.accompanist.navigation)
-    implementation(libs.accompanist.swiperefresh)
-    implementation(libs.accompanist.animation)
-    implementation(libs.bundles.compose)
     implementation(libs.bundles.accompanist)
-    implementation(libs.easycrop)
-    implementation(libs.androidx.junit.ktx)
     testImplementation(libs.test.junit4)
+    androidTestImplementation(libs.androidx.test.ext)
 
-    androidTestImplementation("androidx.test.ext:junit:1.1.2")
 
-
-     implementation("com.google.dagger:dagger:2.46.1")
-     kapt("com.google.dagger:dagger-compiler:2.46.1")
-     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-     implementation("com.google.dagger:hilt-android:2.46.1")
-     kapt("com.google.dagger:hilt-android-compiler:2.46.1")
-     kapt("androidx.hilt:hilt-compiler:1.0.0")
-     androidTestImplementation("com.google.dagger:hilt-android-testing:2.46.1")
-     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.46.1")
 
 
 }
