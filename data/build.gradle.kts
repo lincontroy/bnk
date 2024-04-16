@@ -58,7 +58,6 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.gms.play.services.auth)
     implementation(libs.gms.play.phone.auth)
-    implementation(libs.firebase.auth)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlin.coroutines.android)
     androidTestImplementation(libs.android.test.junit4)
