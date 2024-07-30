@@ -178,7 +178,7 @@ fun isNightMode(): Boolean = when (LocalContext.current.appTheme) {
 
 
 @Composable
-fun EquityMobileTheme(
+fun EMTheme(
     darkTheme: Boolean = false,
     androidTheme: Boolean = false,
     disableDynamicTheming: Boolean = true,

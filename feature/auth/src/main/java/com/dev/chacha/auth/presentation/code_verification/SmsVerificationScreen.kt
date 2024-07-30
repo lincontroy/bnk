@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.extensions.formatContact
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.base.AppViewModel
@@ -118,12 +117,3 @@ fun SmsVerificationScreen(navController: NavController, appViewModel:AppViewMode
 
 
 
-@Composable
-@Preview("Light Mode", showBackground = true)
-fun CodeVerificationPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        SmsVerificationScreen(rememberNavController())
-
-    }
-
-}

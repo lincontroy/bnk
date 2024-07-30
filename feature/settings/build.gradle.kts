@@ -47,6 +47,7 @@ dependencies {
     implementation(projects.data)
     implementation(projects.core.database)
     implementation(projects.core.network)
+    implementation(projects.core.resources)
 
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
@@ -56,6 +57,7 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.timber)
+    implementation(libs.bundles.koin)
     implementation(libs.kotlin.coroutines.play.services)
     implementation(libs.gms.play.services.auth)
     implementation(libs.accompanist.flowlayout)

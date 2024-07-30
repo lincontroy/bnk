@@ -175,12 +175,3 @@ private val securityItemOptions = listOf(
 
     )
 
-
-@Composable
-fun ManageSecurityQnPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        SecurityScreen(
-            rememberNavController()
-        )
-    }
-}

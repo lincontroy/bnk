@@ -1,4 +1,7 @@
 @file:Suppress("UnstableApiUsage")
+
+include(":core:resources")
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 pluginManagement {
     includeBuild("build-logic")

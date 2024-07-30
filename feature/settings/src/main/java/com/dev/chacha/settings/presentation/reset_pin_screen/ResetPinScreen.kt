@@ -187,12 +187,3 @@ fun ResetPinScreen(
 
 }
 
-@Composable
-fun FingerPrintScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        ResetPinScreen(
-            navController = rememberNavController()
-        )
-    }
-
-}

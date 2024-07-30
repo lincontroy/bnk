@@ -31,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.auth.presentation.navigation.AuthScreen
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.base.AppViewModel
@@ -222,18 +221,7 @@ fun RegisterScreen(
 
 }
 
-@Composable
-fun FingerPrintScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        RegisterScreen(
-            onClick = { /*TODO*/ },
-            onLoginClick = { /*TODO*/ },
-            registerViewModel = RegisterViewModel(),
-            navController = rememberNavController()
-        )
-    }
 
-}
 
 const val COUNTRY_BOTTOM_SHEET = "counties bottom-sheet"
 

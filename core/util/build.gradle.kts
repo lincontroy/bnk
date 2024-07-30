@@ -38,7 +38,6 @@ dependencies {
     implementation(libs.datastore)
     implementation(libs.bundles.compose)
     implementation(libs.bundles.accompanist)
-    implementation(libs.bundles.accompanist)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.timber)
     implementation(libs.kotlin.coroutines.play.services)

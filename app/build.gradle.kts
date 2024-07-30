@@ -5,20 +5,21 @@ plugins {
     alias(libs.plugins.equitymobile.android.hilt)
     alias(libs.plugins.equitymobile.android.application.firebase)
     kotlin("kapt")
+    id("io.realm.kotlin")
 }
 
 android {
     namespace = "com.chachadeveloper.equitymobile"
-    
+
     defaultConfig {
         applicationId = "com.chachadeveloper.equitymobile"
 
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner= "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
-            useSupportLibrary =true
+            useSupportLibrary = true
         }
     }
 
@@ -34,6 +35,7 @@ android {
 
     kotlinOptions {
         freeCompilerArgs + "-Xjvm-default=all"
+
     }
 
     packaging {
@@ -42,12 +44,25 @@ android {
             pickFirsts.add("META-INF/INDEX.LIST")
         }
     }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        freeCompilerArgs + "-Xjvm-default=all"
+        jvmTarget = "1.8"
+
+    }
+
 }
 
 dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.ui)
     implementation(projects.core.util)
+    implementation(projects.core.resources)
     implementation(projects.data)
     implementation(projects.domain)
     implementation(projects.core.database)
@@ -69,6 +84,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.work.runtime)
     implementation(libs.datastore)
+    implementation(libs.bundles.koin)
+    implementation(libs.bundles.compose)
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
     implementation(libs.android.material)
@@ -76,9 +93,6 @@ dependencies {
     implementation(libs.bundles.accompanist)
     testImplementation(libs.test.junit4)
     androidTestImplementation(libs.androidx.test.ext)
-
-
-
 
 }
 

@@ -95,12 +95,3 @@ fun SupportScreen() {
 
 }
 
-@Composable
-@Preview("Light Mode", showBackground = true)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
-fun FingerPrintScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        SupportScreen()
-    }
-
-}

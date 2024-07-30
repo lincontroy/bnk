@@ -49,6 +49,7 @@ dependencies {
     implementation(projects.data)
     implementation(projects.core.database)
     implementation(projects.core.network)
+    implementation(projects.core.resources)
 
     implementation(platform(libs.compose.bom))
     implementation(libs.android.coreKtx)
@@ -58,7 +59,7 @@ dependencies {
     implementation(libs.biometric)
     implementation(libs.bundles.lifecycle)
     implementation(libs.datastore)
-    implementation(libs.bundles.compose)
+    implementation(libs.bundles.koin)
     implementation(libs.bundles.accompanist)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.timber)

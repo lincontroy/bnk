@@ -20,10 +20,9 @@ plugins {
     alias(libs.plugins.parcelize) apply false
     alias(libs.plugins.module.graph) apply true
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false // Plugin applied to allow module graph generation
+    id("io.realm.kotlin") version "1.10.0"
 
 }
-
-
 
 allprojects {
     apply(plugin = "org.jetbrains.dokka")
@@ -36,13 +35,13 @@ allprojects {
         }
     }
 
-
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
         kotlinOptions {
             jvmTarget = "17"
         }
     }
 }
+
 
 subprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
@@ -56,13 +55,22 @@ subprojects {
     spotless {
         kotlin {
             target("**/*.kt")
+            targetExclude("${project.rootDir}/build-logic/**/*.kt")
             licenseHeaderFile(
                 rootProject.file("${project.rootDir}/spotless/copyright.kt"),
                 "^(package|object|import|interface)"
             )
         }
+        format("kts") {
+            target("**/*.kts")
+            targetExclude("**/build/**/*.kts")
+            // Look for the first line that doesn't have a block comment (assumed to be the license)
+            licenseHeaderFile(rootProject.file("spotless/copyright.kts"), "(^(?![\\/ ]\\*).*$)")
+        }
     }
 }
+
+
 
 tasks.register("name",Delete::class){
     delete(rootProject.buildDir)
