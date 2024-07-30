@@ -17,7 +17,6 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.auth.presentation.my_validate.ConditionRow
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.AppTextField
@@ -153,11 +152,3 @@ fun CreatePasswordScreen(
 }
 
 
-@Composable
-fun CreatePasswordPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        CreatePasswordScreen(onClickAction = { /*TODO*/ })
-
-    }
-
-}

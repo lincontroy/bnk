@@ -88,12 +88,3 @@ fun NotificationScreen(
 
     }
 }
-
-@Composable
-fun NotificationScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        NotificationScreen {
-        }
-    }
-
-}

@@ -5,7 +5,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.dev.chacha.ui.R
 import com.dev.chacha.ui.common.components.StandardToolbar
 
@@ -72,13 +71,6 @@ fun SecurityScreen() {
 
 }
 
-@Composable
-fun SecurityScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        SecurityScreen()
-    }
-
-}
 
 
 

@@ -70,9 +70,3 @@ fun ChangeLanguageScreen() {
 
 
 
-@Composable
-fun ChangeLanguagePreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        ChangeLanguageScreen()
-    }
-}

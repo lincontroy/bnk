@@ -81,11 +81,3 @@ fun ManageDeviceScreen(
 
 }
 
-
-@Composable
-fun ManageDeviceScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        ManageDeviceScreen(navController = rememberNavController())
-    }
-
-}

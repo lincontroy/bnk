@@ -11,7 +11,6 @@ android {
 
     defaultConfig {
 
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
         vectorDrawables {
@@ -54,6 +53,7 @@ dependencies {
     implementation(projects.data)
     implementation(projects.core.database)
     implementation(projects.core.network)
+    implementation(projects.core.resources)
 
     implementation(libs.android.coreKtx)
     implementation(libs.android.appCompat)
@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.biometric)
     implementation(libs.bundles.lifecycle)
     implementation(libs.datastore)
+    implementation(libs.bundles.koin)
     implementation(libs.bundles.accompanist)
     implementation(libs.timber)
     implementation(libs.lottie.compose)

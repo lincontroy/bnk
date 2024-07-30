@@ -165,13 +165,3 @@ fun ResetPasswordScreen(
 
 }
 
-@Composable
-fun FingerPrintScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        ResetPasswordScreen(
-            resetPasswordViewModel = ResetPasswordViewModel(),
-            navController = rememberNavController()
-        )
-    }
-
-}

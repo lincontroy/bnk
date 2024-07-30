@@ -38,6 +38,15 @@ android {
             pickFirsts.add("META-INF/io.netty.versions.properties")
         }
     }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility  =JavaVersion.VERSION_17
+
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 
 }
 
@@ -50,6 +59,7 @@ dependencies {
     api(libs.datastore)
     api(libs.androidx.lifecycle.runtimeKtx)
     api(libs.timber)
+    api(libs.bundles.compose)
     implementation(libs.coil.gf)
     api(libs.androidx.splashscreen)
     api(libs.kotlin.coroutines.play.services)

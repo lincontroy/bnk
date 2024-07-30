@@ -36,7 +36,9 @@ date = "1.0.2"
 detekt = "1.19.0"
 dokka = "1.8.10"
 dependencyGuard = "0.4.3"
-firebaseBom = "32.7.4"
+firebase_bom = "32.8.1"
+firebase_common = "20.4.3"
+firebaseAuthCommon = "9.8.0"
 firebaseCrashlyticsPlugin = "2.9.9"
 firebasePerfPlugin = "1.4.2"
 gmsPlugin = "4.4.1"
@@ -47,6 +49,7 @@ hilt = "2.51"
 hiltExt = "1.1.0"
 ktlint = "11.3.1"
 kotlin = "1.9.22"
+koin = "3.4.3"
 kotlinxCoroutines = "1.8.0"
 kotlinxDatetime = "0.5.0"
 kotlinxSerializationJson = "1.6.2"
@@ -62,9 +65,11 @@ paging-common = "3.2.1"
 paging-compose = "3.2.1"
 protobuf = "3.25.2"
 protobufPlugin = "0.9.4"
+remote_config = "21.5.0"
 result-jvm = "5.2.1"
 retrofit = "2.9.0"
 retrofitKotlinxSerializationJson = "1.0.0"
+realm-version = "1.10.0"
 robolectric = "4.11.1"
 room = "2.6.1"
 roborazzi = "1.7.0"
@@ -80,7 +85,6 @@ turbine = "1.0.0"
 zeko-query-builder = "1.4.4"
 vico = "1.11.3"
 compose = "1.6.4"
-kotlin2 = "1.9.0"
 components-resources = "1.5.3"
 
 
@@ -152,24 +156,34 @@ coil-kt = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 coil-kt-svg = { group = "io.coil-kt", name = "coil-svg", version.ref = "coil" }
 coil-gf = { module = "io.coil-kt:coil-gif", version.ref = "coil-gf" }
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
-firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
-firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
-firebase-cloud-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
-firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
-firebase-auth-ktx = { group = "com.google.firebase",name="firebase-auth-ktx" }
-firebase-database-ktx = { group = "com.google.firebase",name="firebase-database-ktx" }
+
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase_bom"}
+firebase-auth = { module = "com.google.firebase:firebase-auth-ktx"}
+firebase-cloud-messaging = { module = "com.google.firebase:firebase-messaging-ktx" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics-ktx" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics-ktx" }
+firebase-performance = { module = "com.google.firebase:firebase-perf-ktx" }
+firebase-config = { module = "com.google.firebase:firebase-config-ktx" }
+firebase-remote-config = { module = "com.google.firebase:firebase-config-ktx", version.ref = "remote_config" }
+firebase-common = { module = "com.google.firebase:firebase-common-ktx", version.ref = "firebase_common"}
+
 gms-play-phone-auth = { module ="com.google.android.gms:play-services-auth-api-phone", version.ref = "gms-play-phone-auth" }
 gms-play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "gms-play-services-auth" }
 gson-gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
 hilt-common = { module = "androidx.hilt:hilt-common", version.ref = "hiltExt"}
+
 javax-inject = { module = "javax.inject:javax.inject", version = "1" }
+
+koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
+koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
+
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
 ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
@@ -177,6 +191,7 @@ ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = 
 ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlinx-coroutines-guava = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-guava", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
@@ -185,6 +200,7 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx",name="kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlin-coroutines-android = { group = "org.jetbrains.kotlinx",name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 kotlin-coroutines-play-services = { group = "org.jetbrains.kotlinx", name= "kotlinx-coroutines-play-services", version.ref = "kotlinxCoroutines" }
+
 lint-api = { group = "com.android.tools.lint", name = "lint-api", version.ref = "androidTools" }
 lint-checks = { group = "com.android.tools.lint", name = "lint-checks", version.ref = "androidTools" }
 lint-tests = { group = "com.android.tools.lint", name = "lint-tests", version.ref = "androidTools" }
@@ -205,6 +221,9 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
+#realm
+realm-library-base = { module = "io.realm.kotlin:library-base", version.ref = "realm-version" }
+
 truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 test-junit4 = { module = "junit:junit", version.ref = "test-junit4" }
@@ -263,8 +282,9 @@ accompanist = ["accompanist-animation","accompanist-flowlayout","accompanist-ind
 compose = ["compose-components-resources","compose-foundation","msz-progress-indicator","androidx-navigation-compose","compose-materialWindow", "compose-material","coil-compose", "compose-activity", "compose-compiler", "compose-runtime", "compose-material-3", "compose-materialIcons", "compose-runtimeLivedata", "compose-ui", "compose-ui-util", "compose-ui-tooling", "compose-ui-tooling-preview", "paging-compose", "compose-preview-customview", "compose-preview-customview-poolingcontainer", "compose-constraintlayout"]
 lifecycle = ["androidx-lifecycle-viewModelCompose", "androidx-lifecycle-runtimeCompose","androidx-lifecycle-ktx","androidx-lifecycle-runtimeKtx","androidx-ifecycle-livedataKtx", "androidx-lifecycle-viewmodel"]
 room = ["room-ktx", "room-paging", "room-runtime"]
+koin = ["koin-core", "koin-android", "koin-androidx-compose", ]
 ktor = ["ktor-core", "ktor-android", "ktor-json", "ktor-content-negotiation"]
-firebase = ["firebase-auth","firebase-cloud-messaging", "firebase-crashlytics", "firebase-analytics", "firebase-performance"]
+firebase = ["firebase-auth","gms-play-phone-auth","gms-play-services-auth","firebase-cloud-messaging", "firebase-crashlytics", "firebase-analytics", "firebase-performance","firebase-remote-config", "firebase-common"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

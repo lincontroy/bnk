@@ -189,14 +189,3 @@ private val notificationPreferenceOption = listOf(
     ),
 
     )
-
-@Composable
-fun NotificationPreferencesPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        NotificationPreferences(
-            navigateBack = {},
-            navController = rememberNavController()
-        )
-    }
-
-}

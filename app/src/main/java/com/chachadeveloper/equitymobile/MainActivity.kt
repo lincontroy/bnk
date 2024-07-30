@@ -2,8 +2,10 @@ package com.chachadeveloper.equitymobile
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,13 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.chachadeveloper.designsystem.theme.EquityMobileTheme
 import com.chachadeveloper.equitymobile.presentation.activity.RootNavGraph
 import com.chachadeveloper.equitymobile.presentation.bottomNav.StandardScaffold
+import com.dev.chacha.resources.EquityMobileTheme
 import com.dev.chacha.util.Graph
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,6 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : FragmentActivity() {
     private val isDone: MutableState<Boolean> = mutableStateOf(false)
     private val permissionRequestCode = 123 // You can choose any request code
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -46,7 +48,7 @@ class MainActivity : FragmentActivity() {
             val navController = rememberNavController()
             val navBackStackEntry by navController.currentBackStackEntryAsState()
 
-            EquityMobileTheme {
+            EquityMobileTheme() {
                 StandardScaffold(
                     navController = navController,
                     showBottomBar = navBackStackEntry?.destination?.route in listOf(

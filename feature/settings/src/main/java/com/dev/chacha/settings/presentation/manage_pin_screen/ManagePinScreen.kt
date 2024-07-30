@@ -55,13 +55,3 @@ fun ManagePinScreen(
 
 
 }
-
-@Composable
-fun ManagePinScreenPreview() {
-    com.chachadeveloper.designsystem.theme.EquityMobileTheme {
-        ManagePinScreen(
-            rememberNavController()
-        )
-    }
-
-}
