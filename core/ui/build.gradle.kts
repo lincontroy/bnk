@@ -40,12 +40,24 @@ android {
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility  =JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
 
     }
 
     kotlinOptions {
         jvmTarget = "17"
+    }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = "17"  // Example: use JVM 17 to match the Java version
+        }
+    }
+
+
+    java {
+        toolchain {
+            languageVersion.set(JavaLanguageVersion.of(17)) // Set the JVM toolchain to use Java 17
+        }
     }
 
 }

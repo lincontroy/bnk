@@ -169,7 +169,5 @@ fun HomeScreen(
             }
         }
     }
-
-
 }
 
